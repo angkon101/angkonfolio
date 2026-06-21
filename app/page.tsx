@@ -7,10 +7,12 @@ import Education from "@/components/Education";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
+import ScrollProgress from "@/components/ScrollProgress";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-dark-900 text-slate-100">
+      <ScrollProgress />
       <CustomCursor />
       <Navbar />
       <Hero />
