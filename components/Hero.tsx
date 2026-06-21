@@ -10,6 +10,14 @@ const roles = [
   "AI Enthusiast",
 ];
 
+// Deterministic positions — avoids hydration mismatch from Math.random()
+const PARTICLES = Array.from({ length: 20 }, (_, i) => ({
+  left: `${((i * 19 + 7) % 97) + 1}%`,
+  top: `${((i * 13 + 11) % 93) + 3}%`,
+  duration: `${4 + (i % 5)}s`,
+  delay: `${(i % 4) * 0.8}s`,
+}));
+
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayed, setDisplayed] = useState("");
@@ -41,18 +49,18 @@ export default function Hero() {
       {/* Animated background blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="blob absolute w-96 h-96 bg-violet-600/20 rounded-full -top-20 -left-20 blur-3xl" />
-        <div className="blob-2 absolute w-80 h-80 bg-cyan-500/15 rounded-full top-1/2 -right-20 blur-3xl" />
-        <div className="blob-3 absolute w-72 h-72 bg-pink-600/15 rounded-full -bottom-20 left-1/3 blur-3xl" />
+        <div className="blob-2 absolute w-80 h-80 bg-cyan-500/[0.15] rounded-full top-1/2 -right-20 blur-3xl" />
+        <div className="blob-3 absolute w-72 h-72 bg-pink-600/[0.15] rounded-full -bottom-20 left-1/3 blur-3xl" />
 
-        {/* Floating particles */}
-        {[...Array(20)].map((_, i) => (
+        {/* Floating particles — stable positions */}
+        {PARTICLES.map((p, i) => (
           <div
             key={i}
             className="absolute w-1 h-1 bg-violet-400/40 rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `float ${4 + Math.random() * 6}s ease-in-out ${Math.random() * 4}s infinite`,
+              left: p.left,
+              top: p.top,
+              animation: `float ${p.duration} ease-in-out ${p.delay} infinite`,
             }}
           />
         ))}
@@ -124,25 +132,19 @@ export default function Hero() {
         {/* Avatar */}
         <div className="order-1 md:order-2 flex justify-center">
           <div className="relative">
-            {/* Spinning ring */}
+            {/* Spinning rings */}
             <div
               className="absolute inset-0 rounded-full border-2 border-dashed border-violet-500/30"
-              style={{
-                animation: "spin 20s linear infinite",
-                margin: "-16px",
-              }}
+              style={{ animation: "spin 20s linear infinite", margin: "-16px" }}
             />
             <div
               className="absolute inset-0 rounded-full border-2 border-dashed border-cyan-500/20"
-              style={{
-                animation: "spin 15s linear reverse infinite",
-                margin: "-32px",
-              }}
+              style={{ animation: "spin 15s linear reverse infinite", margin: "-32px" }}
             />
 
             {/* Avatar container */}
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-violet-500/40 box-glow-purple">
-              {/* Placeholder — replace src with your photo */}
+              {/* Replace this div with <Image> once you add your photo to /public */}
               <div className="w-full h-full bg-gradient-to-br from-violet-900/80 via-dark-800 to-cyan-900/50 flex items-center justify-center">
                 <div className="text-center">
                   <div className="text-6xl mb-3">👨‍💻</div>

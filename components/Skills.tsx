@@ -66,7 +66,7 @@ export default function Skills() {
 
       <div className="max-w-6xl mx-auto px-6">
         <div
-          ref={ref as React.RefObject<HTMLDivElement>}
+          ref={ref}
           className={`reveal ${visible ? "visible" : ""}`}
         >
           <div className="flex items-center gap-4 mb-12">

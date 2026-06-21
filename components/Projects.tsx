@@ -13,6 +13,7 @@ const projects = [
     emoji: "🌸",
     status: "In Progress",
     link: null,
+    glowColor: "#8b5cf620",
   },
   {
     name: "Perfumevaultbd.com",
@@ -24,17 +25,19 @@ const projects = [
     emoji: "🛍️",
     status: "Live",
     link: "https://perfumevaultbd.com",
+    glowColor: "#06b6d420",
   },
   {
     name: "Uthao",
     subtitle: "Bangladeshi Thrifting App",
     description:
-      "University project — Bangladesh's first recycled clothing thrifting platform on a SaaS model. Promotes sustainable fashion and connects buyers & sellers of second-hand clothes.",
+      "University project — Bangladesh&apos;s first recycled clothing thrifting platform on a SaaS model. Promotes sustainable fashion and connects buyers & sellers of second-hand clothes.",
     tech: ["JavaScript", "PLpgSQL"],
     color: "pink",
     emoji: "♻️",
     status: "University Project",
     link: null,
+    glowColor: "#ec489920",
   },
   {
     name: "AI / CV Research",
@@ -46,6 +49,7 @@ const projects = [
     emoji: "🧠",
     status: "Published",
     link: null,
+    glowColor: "#10b98120",
   },
 ];
 
@@ -87,7 +91,7 @@ export default function Projects() {
 
       <div className="max-w-6xl mx-auto px-6">
         <div
-          ref={ref as React.RefObject<HTMLDivElement>}
+          ref={ref}
           className={`reveal ${visible ? "visible" : ""}`}
         >
           <div className="flex items-center gap-4 mb-12">
@@ -113,9 +117,7 @@ export default function Projects() {
                         <p className="text-slate-500 text-xs font-mono">{project.subtitle}</p>
                       </div>
                     </div>
-                    <span
-                      className={`px-2 py-1 rounded-full border text-xs font-mono ${c.badge} whitespace-nowrap`}
-                    >
+                    <span className={`px-2 py-1 rounded-full border text-xs font-mono ${c.badge} whitespace-nowrap`}>
                       {project.status}
                     </span>
                   </div>
@@ -126,10 +128,7 @@ export default function Projects() {
                   {/* Tech stack */}
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((t) => (
-                      <span
-                        key={t}
-                        className={`px-2.5 py-1 rounded-md border text-xs font-mono ${c.tech}`}
-                      >
+                      <span key={t} className={`px-2.5 py-1 rounded-md border text-xs font-mono ${c.tech}`}>
                         {t}
                       </span>
                     ))}
@@ -148,19 +147,11 @@ export default function Projects() {
                     </a>
                   )}
 
-                  {/* Corner accent */}
+                  {/* Corner accent — stable inline color from data, not dynamic class */}
                   <div
-                    className={`absolute top-0 right-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none`}
+                    className="absolute top-0 right-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-tr-2xl"
                     style={{
-                      background: `radial-gradient(circle at top right, ${
-                        project.color === "violet"
-                          ? "#8b5cf620"
-                          : project.color === "cyan"
-                          ? "#06b6d420"
-                          : project.color === "pink"
-                          ? "#ec489920"
-                          : "#10b98120"
-                      }, transparent)`,
+                      background: `radial-gradient(circle at top right, ${project.glowColor}, transparent)`,
                     }}
                   />
                 </div>

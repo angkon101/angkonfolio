@@ -35,20 +35,20 @@ const timeline = [
   },
 ];
 
-const colorMap: Record<string, { dot: string; border: string; badge: string }> = {
+const colorMap: Record<string, { dot: string; hoverBorder: string; badge: string }> = {
   violet: {
     dot: "bg-violet-500 shadow-violet-500/50",
-    border: "border-violet-500/30",
+    hoverBorder: "hover:border-violet-500/30",
     badge: "text-violet-300 bg-violet-500/10 border-violet-500/30",
   },
   cyan: {
     dot: "bg-cyan-500 shadow-cyan-500/50",
-    border: "border-cyan-500/30",
+    hoverBorder: "hover:border-cyan-500/30",
     badge: "text-cyan-300 bg-cyan-500/10 border-cyan-500/30",
   },
   pink: {
     dot: "bg-pink-500 shadow-pink-500/50",
-    border: "border-pink-500/30",
+    hoverBorder: "hover:border-pink-500/30",
     badge: "text-pink-300 bg-pink-500/10 border-pink-500/30",
   },
 };
@@ -64,7 +64,7 @@ export default function Education() {
 
       <div className="max-w-6xl mx-auto px-6">
         <div
-          ref={ref as React.RefObject<HTMLDivElement>}
+          ref={ref}
           className={`reveal ${visible ? "visible" : ""}`}
         >
           <div className="flex items-center gap-4 mb-12">
@@ -88,7 +88,7 @@ export default function Education() {
                     />
 
                     <div
-                      className={`p-6 rounded-2xl bg-dark-700/40 border border-white/5 hover:${c.border} transition-all hover:-translate-y-1`}
+                      className={`p-6 rounded-2xl bg-dark-700/40 border border-white/5 ${c.hoverBorder} transition-all hover:-translate-y-1`}
                     >
                       <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
                         <div className="flex items-center gap-3">
@@ -99,9 +99,7 @@ export default function Education() {
                           </div>
                         </div>
                         <div className="flex flex-col items-end gap-1">
-                          <span
-                            className={`px-3 py-1 rounded-full border text-xs font-mono ${c.badge}`}
-                          >
+                          <span className={`px-3 py-1 rounded-full border text-xs font-mono ${c.badge}`}>
                             {item.period}
                           </span>
                           <span className="text-slate-600 text-xs font-mono">{item.location}</span>
@@ -123,10 +121,10 @@ export default function Education() {
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
-                { lang: "Bangla", level: "Native", width: "100%", color: "violet" },
-                { lang: "English", level: "Professional", width: "85%", color: "cyan" },
-                { lang: "Hindi", level: "Basic Speaking", width: "40%", color: "pink" },
-                { lang: "German", level: "Learning", width: "15%", color: "green" },
+                { lang: "Bangla", level: "Native", width: "100%", gradient: "from-violet-500 to-violet-400" },
+                { lang: "English", level: "Professional", width: "85%", gradient: "from-cyan-500 to-cyan-400" },
+                { lang: "Hindi", level: "Basic Speaking", width: "40%", gradient: "from-pink-500 to-pink-400" },
+                { lang: "German", level: "Learning", width: "15%", gradient: "from-green-500 to-green-400" },
               ].map((l) => (
                 <div key={l.lang}>
                   <div className="flex justify-between text-xs mb-1">
@@ -135,15 +133,7 @@ export default function Education() {
                   </div>
                   <div className="h-1.5 bg-dark-600 rounded-full overflow-hidden">
                     <div
-                      className={`h-full rounded-full bg-gradient-to-r ${
-                        l.color === "violet"
-                          ? "from-violet-500 to-violet-400"
-                          : l.color === "cyan"
-                          ? "from-cyan-500 to-cyan-400"
-                          : l.color === "pink"
-                          ? "from-pink-500 to-pink-400"
-                          : "from-green-500 to-green-400"
-                      }`}
+                      className={`h-full rounded-full bg-gradient-to-r ${l.gradient}`}
                       style={{ width: l.width }}
                     />
                   </div>

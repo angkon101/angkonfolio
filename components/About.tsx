@@ -2,6 +2,14 @@
 
 import { useReveal } from "@/hooks/useReveal";
 
+// Static maps so Tailwind JIT can see the full class names at build time
+const hoverBorderMap: Record<string, string> = {
+  violet: "hover:border-violet-500/30",
+  cyan: "hover:border-cyan-500/30",
+  pink: "hover:border-pink-500/30",
+  green: "hover:border-green-500/30",
+};
+
 export default function About() {
   const { ref, visible } = useReveal();
 
@@ -13,7 +21,7 @@ export default function About() {
 
       <div className="max-w-6xl mx-auto px-6">
         <div
-          ref={ref as React.RefObject<HTMLDivElement>}
+          ref={ref}
           className={`reveal ${visible ? "visible" : ""}`}
         >
           <div className="flex items-center gap-4 mb-12">
@@ -25,27 +33,27 @@ export default function About() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-4 text-slate-400 leading-relaxed">
               <p>
-                Hey! I'm <span className="text-violet-400 font-semibold">Angkon Debnath</span> — a computer science
+                Hey! I&apos;m <span className="text-violet-400 font-semibold">Angkon Debnath</span> — a computer science
                 student at <span className="text-cyan-400 font-semibold">IUBAT</span> based in Dhaka, Bangladesh.
                 I love building products that actually get used.
               </p>
               <p>
                 My main toolkit is <span className="text-white font-medium">Flutter</span> for cross-platform apps
-                and <span className="text-white font-medium">TypeScript + React</span> for the web. I've shipped real
+                and <span className="text-white font-medium">TypeScript + React</span> for the web. I&apos;ve shipped real
                 products with the team at{" "}
                 <span className="text-pink-400 font-semibold">Bohuvuj</span>, from e-commerce
                 platforms to community knowledge bases.
               </p>
               <p>
-                I'm also deep into <span className="text-white font-medium">AI research</span> — I've co-authored
+                I&apos;m also deep into <span className="text-white font-medium">AI research</span> — I&apos;ve co-authored
                 5+ papers on deep learning and computer vision. Trained in Flutter under the
                 government-backed{" "}
                 <span className="text-cyan-400 font-medium">EDGE Program</span> at Bangladesh
                 Computer Council.
               </p>
               <p>
-                When I'm not coding, I'm learning German, exploring SQA methodologies, or
-                thinking about Bangladesh's tech ecosystem.
+                When I&apos;m not coding, I&apos;m learning German, exploring SQA methodologies, or
+                thinking about Bangladesh&apos;s tech ecosystem.
               </p>
             </div>
 
@@ -61,7 +69,7 @@ export default function About() {
               ].map((item) => (
                 <div
                   key={item.label}
-                  className={`group p-4 rounded-xl bg-dark-700/50 border border-white/5 hover:border-${item.color}-500/30 transition-all hover:bg-dark-700/80 hover:-translate-y-1`}
+                  className={`group p-4 rounded-xl bg-dark-700/50 border border-white/5 ${hoverBorderMap[item.color]} transition-all hover:bg-dark-700/80 hover:-translate-y-1`}
                 >
                   <div className="text-2xl mb-2">{item.icon}</div>
                   <div className="text-xs text-slate-500 font-mono">{item.label}</div>

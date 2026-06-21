@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import type { RefObject } from "react";
 
-export function useReveal(threshold = 0.15) {
-  const ref = useRef<Element>(null);
+export function useReveal(threshold = 0.15): { ref: RefObject<HTMLDivElement>; visible: boolean } {
+  const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
