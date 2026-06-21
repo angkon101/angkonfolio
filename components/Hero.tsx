@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const roles = [
   "Flutter Developer",
@@ -144,13 +145,13 @@ export default function Hero() {
 
             {/* Avatar container */}
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-violet-500/40 box-glow-purple">
-              <image>"C:\Users\angko\Downloads\WhatsApp Image 2026-05-24 at 11.47.23 PM.jpeg"</image>
-              <div className="w-full h-full bg-gradient-to-br from-violet-900/80 via-dark-800 to-cyan-900/50 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-6xl mb-3">👨‍💻</div>
-                  <p className="text-slate-400 text-xs font-mono">photo coming soon</p>
-                </div>
-              </div>
+              <Image
+                src="/profile.jpg"
+                alt="Angkon Debnath"
+                fill
+                className="object-cover object-top"
+                priority
+              />
             </div>
 
             {/* Floating badges */}
