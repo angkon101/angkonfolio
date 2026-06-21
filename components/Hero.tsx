@@ -271,6 +271,9 @@ export default function Hero() {
              <div className="absolute top-2/2 -right-12 px-3 py-1.5 rounded-full bg-dark-700 border border-pink-500/40 text-xs font-mono text-pink-300 animate-float-slow">
               Node Js ✦
             </div>
+            <div className="absolute top-1 -right-1 px-3 py-1.5 rounded-full bg-dark-700 border border-pink-500/40 text-xs font-mono text-pink-300 animate-float-slow">
+              React ✦
+            </div>
 
           </div>
         </div>
