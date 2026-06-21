@@ -56,23 +56,23 @@ const projects = [
 const colorMap: Record<string, { border: string; badge: string; tech: string }> = {
   violet: {
     border: "group-hover:border-violet-500/50",
-    badge:  "bg-violet-500/20 text-violet-300 border-violet-500/30",
-    tech:   "bg-violet-900/30 text-violet-300 border-violet-500/20",
+    badge:  "bg-violet-500/20 dark:text-violet-300 text-violet-700 border-violet-500/30",
+    tech:   "dark:bg-violet-900/30 bg-violet-50 dark:text-violet-300 text-violet-700 border-violet-500/20",
   },
   cyan: {
     border: "group-hover:border-cyan-500/50",
-    badge:  "bg-cyan-500/20 text-cyan-300 border-cyan-500/30",
-    tech:   "bg-cyan-900/30 text-cyan-300 border-cyan-500/20",
+    badge:  "bg-cyan-500/20 dark:text-cyan-300 text-cyan-700 border-cyan-500/30",
+    tech:   "dark:bg-cyan-900/30 bg-cyan-50 dark:text-cyan-300 text-cyan-700 border-cyan-500/20",
   },
   pink: {
     border: "group-hover:border-pink-500/50",
-    badge:  "bg-pink-500/20 text-pink-300 border-pink-500/30",
-    tech:   "bg-pink-900/30 text-pink-300 border-pink-500/20",
+    badge:  "bg-pink-500/20 dark:text-pink-300 text-pink-700 border-pink-500/30",
+    tech:   "dark:bg-pink-900/30 bg-pink-50 dark:text-pink-300 text-pink-700 border-pink-500/20",
   },
   green: {
     border: "group-hover:border-green-500/50",
-    badge:  "bg-green-500/20 text-green-300 border-green-500/30",
-    tech:   "bg-green-900/30 text-green-300 border-green-500/20",
+    badge:  "bg-green-500/20 dark:text-green-300 text-green-700 border-green-500/30",
+    tech:   "dark:bg-green-900/30 bg-green-50 dark:text-green-300 text-green-700 border-green-500/20",
   },
 };
 
@@ -115,7 +115,7 @@ export default function Projects() {
           }}
         >
           <span className="font-mono text-violet-400 text-sm section-num">03.</span>
-          <h2 className="text-3xl font-bold text-white">Projects</h2>
+          <h2 className="text-3xl font-bold dark:text-white text-gray-900">Projects</h2>
           <div
             className="flex-1 h-px bg-gradient-to-r from-violet-500/40 to-transparent"
             style={{
@@ -135,7 +135,7 @@ export default function Projects() {
                 key={project.name}
                 onMouseMove={onCardMove}
                 onMouseLeave={onCardLeave}
-                className={`project-tilt group relative p-6 rounded-2xl bg-dark-700/40 border border-white/5 ${c.border} hover:shadow-2xl`}
+                className={`project-tilt group relative p-6 rounded-2xl dark:bg-dark-700/40 bg-white border dark:border-white/5 border-gray-200 ${c.border} hover:shadow-2xl`}
                 style={{
                   opacity:         gridVisible ? 1 : 0,
                   transitionDelay: gridVisible ? `${pi * 0.12}s` : "0s",
@@ -154,8 +154,8 @@ export default function Projects() {
                       {project.emoji}
                     </span>
                     <div>
-                      <h3 className="text-white font-bold text-lg leading-tight">{project.name}</h3>
-                      <p className="text-slate-500 text-xs font-mono">{project.subtitle}</p>
+                      <h3 className="dark:text-white text-gray-900 font-bold text-lg leading-tight">{project.name}</h3>
+                      <p className="dark:text-slate-500 text-gray-400 text-xs font-mono">{project.subtitle}</p>
                     </div>
                   </div>
                   <span className={`px-2 py-1 rounded-full border text-xs font-mono ${c.badge} whitespace-nowrap`}>
@@ -163,7 +163,7 @@ export default function Projects() {
                   </span>
                 </div>
 
-                <p className="text-slate-400 text-sm leading-relaxed mb-5 relative z-10">{project.description}</p>
+                <p className="dark:text-slate-400 text-gray-500 text-sm leading-relaxed mb-5 relative z-10">{project.description}</p>
 
                 <div className="flex flex-wrap gap-2 mb-4 relative z-10">
                   {project.tech.map((t, ti) => (
@@ -186,10 +186,10 @@ export default function Projects() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-white transition-colors group/link relative z-10"
+                    className="inline-flex items-center gap-2 text-xs font-mono dark:text-slate-400 text-gray-500 hover:text-violet-500 dark:hover:text-white transition-colors group/link relative z-10"
                   >
                     <span className="group-hover/link:underline">Visit site</span>
-                    <span className="group-hover/link:translate-x-1 transition-transform">↗</span>
+                    <span className="group-hover/link:translate-x-1 transition-transform">&#8599;</span>
                   </a>
                 )}
 

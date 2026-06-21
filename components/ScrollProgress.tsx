@@ -16,7 +16,7 @@ export default function ScrollProgress() {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 h-[2px] z-[200] bg-white/5">
+    <div className="fixed top-0 left-0 right-0 h-[2px] z-[200] dark:bg-white/5 bg-gray-200">
       <div
         ref={barRef}
         style={{ width: "0%", transition: "width 80ms linear" }}

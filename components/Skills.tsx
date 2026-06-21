@@ -18,10 +18,10 @@ const skillGroups = [
 ];
 
 const colorMap: Record<string, string> = {
-  violet: "border-violet-500/30 text-violet-300 bg-violet-500/10 hover:bg-violet-500/20 hover:border-violet-400/50",
-  cyan:   "border-cyan-500/30 text-cyan-300 bg-cyan-500/10 hover:bg-cyan-500/20 hover:border-cyan-400/50",
-  pink:   "border-pink-500/30 text-pink-300 bg-pink-500/10 hover:bg-pink-500/20 hover:border-pink-400/50",
-  green:  "border-green-500/30 text-green-300 bg-green-500/10 hover:bg-green-500/20 hover:border-green-400/50",
+  violet: "border-violet-500/30 dark:text-violet-300 text-violet-700 bg-violet-500/10 hover:bg-violet-500/20 hover:border-violet-400/50",
+  cyan:   "border-cyan-500/30 dark:text-cyan-300 text-cyan-700 bg-cyan-500/10 hover:bg-cyan-500/20 hover:border-cyan-400/50",
+  pink:   "border-pink-500/30 dark:text-pink-300 text-pink-700 bg-pink-500/10 hover:bg-pink-500/20 hover:border-pink-400/50",
+  green:  "border-green-500/30 dark:text-green-300 text-green-700 bg-green-500/10 hover:bg-green-500/20 hover:border-green-400/50",
 };
 
 const headerColorMap: Record<string, string> = {
@@ -61,7 +61,7 @@ export default function Skills() {
           }}
         >
           <span className="font-mono text-violet-400 text-sm section-num">02.</span>
-          <h2 className="text-3xl font-bold text-white">Skills</h2>
+          <h2 className="text-3xl font-bold dark:text-white text-gray-900">Skills</h2>
           <div
             className="flex-1 h-px bg-gradient-to-r from-violet-500/40 to-transparent"
             style={{
@@ -77,7 +77,7 @@ export default function Skills() {
           {skillGroups.map((group, gi) => (
             <div
               key={group.category}
-              className="shimmer-card relative p-6 rounded-2xl bg-dark-700/40 border border-white/5 hover:border-white/10 transition-all hover:-translate-y-1 hover:shadow-xl"
+              className="shimmer-card relative p-6 rounded-2xl dark:bg-dark-700/40 bg-white border dark:border-white/5 border-gray-200 hover:border-white/10 transition-all hover:-translate-y-1 hover:shadow-xl"
               style={{
                 opacity:         gridVisible ? 1 : 0,
                 transform:       gridVisible ? "none" : "translateY(32px) scale(0.95)",

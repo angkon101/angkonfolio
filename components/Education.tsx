@@ -43,9 +43,9 @@ const languages = [
 ];
 
 const colorMap: Record<string, { dot: string; hoverBorder: string; badge: string }> = {
-  violet: { dot: "bg-violet-500 shadow-violet-500/50", hoverBorder: "hover:border-violet-500/30", badge: "text-violet-300 bg-violet-500/10 border-violet-500/30"  },
-  cyan:   { dot: "bg-cyan-500 shadow-cyan-500/50",     hoverBorder: "hover:border-cyan-500/30",   badge: "text-cyan-300 bg-cyan-500/10 border-cyan-500/30"        },
-  pink:   { dot: "bg-pink-500 shadow-pink-500/50",     hoverBorder: "hover:border-pink-500/30",   badge: "text-pink-300 bg-pink-500/10 border-pink-500/30"        },
+  violet: { dot: "bg-violet-500 shadow-violet-500/50", hoverBorder: "hover:border-violet-500/30", badge: "dark:text-violet-300 text-violet-700 bg-violet-500/10 border-violet-500/30"  },
+  cyan:   { dot: "bg-cyan-500 shadow-cyan-500/50",     hoverBorder: "hover:border-cyan-500/30",   badge: "dark:text-cyan-300 text-cyan-700 bg-cyan-500/10 border-cyan-500/30"        },
+  pink:   { dot: "bg-pink-500 shadow-pink-500/50",     hoverBorder: "hover:border-pink-500/30",   badge: "dark:text-pink-300 text-pink-700 bg-pink-500/10 border-pink-500/30"        },
 };
 
 export default function Education() {
@@ -72,7 +72,7 @@ export default function Education() {
           }}
         >
           <span className="font-mono text-violet-400 text-sm section-num">04.</span>
-          <h2 className="text-3xl font-bold text-white">Education & Experience</h2>
+          <h2 className="text-3xl font-bold dark:text-white text-gray-900">Education &amp; Experience</h2>
           <div
             className="flex-1 h-px bg-gradient-to-r from-violet-500/40 to-transparent"
             style={{
@@ -111,7 +111,7 @@ export default function Education() {
                 >
                   {/* Animated dot */}
                   <div
-                    className={`absolute -left-9 top-2 w-4 h-4 rounded-full border-2 border-dark-900 ${c.dot} shadow-lg transition-all duration-300 group-hover:scale-125 group-hover:shadow-xl`}
+                    className={`absolute -left-9 top-2 w-4 h-4 rounded-full border-2 dark:border-dark-900 border-white ${c.dot} shadow-lg transition-all duration-300 group-hover:scale-125 group-hover:shadow-xl`}
                     style={{
                       opacity:         timelineVisible ? 1 : 0,
                       transition:      "opacity 0.4s ease, transform 0.3s ease, box-shadow 0.3s",
@@ -120,7 +120,7 @@ export default function Education() {
                   />
 
                   <div
-                    className={`shimmer-card p-6 rounded-2xl bg-dark-700/40 border border-white/5 ${c.hoverBorder} transition-all hover:-translate-y-1`}
+                    className={`shimmer-card p-6 rounded-2xl dark:bg-dark-700/40 bg-white border dark:border-white/5 border-gray-200 ${c.hoverBorder} transition-all hover:-translate-y-1`}
                   >
                     <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
                       <div className="flex items-center gap-3">
@@ -131,18 +131,18 @@ export default function Education() {
                           {item.icon}
                         </span>
                         <div>
-                          <h3 className="text-white font-bold leading-tight">{item.title}</h3>
-                          <p className="text-slate-400 text-sm mt-0.5">{item.org}</p>
+                          <h3 className="dark:text-white text-gray-900 font-bold leading-tight">{item.title}</h3>
+                          <p className="dark:text-slate-400 text-gray-500 text-sm mt-0.5">{item.org}</p>
                         </div>
                       </div>
                       <div className="flex flex-col items-end gap-1">
                         <span className={`px-3 py-1 rounded-full border text-xs font-mono ${c.badge}`}>
                           {item.period}
                         </span>
-                        <span className="text-slate-600 text-xs font-mono">{item.location}</span>
+                        <span className="dark:text-slate-600 text-gray-400 text-xs font-mono">{item.location}</span>
                       </div>
                     </div>
-                    <p className="text-slate-400 text-sm leading-relaxed">{item.detail}</p>
+                    <p className="dark:text-slate-400 text-gray-500 text-sm leading-relaxed">{item.detail}</p>
                   </div>
                 </div>
               );
@@ -153,24 +153,24 @@ export default function Education() {
         {/* Languages section */}
         <div
           ref={langRef}
-          className="mt-12 p-6 rounded-2xl bg-dark-700/40 border border-white/5"
+          className="mt-12 p-6 rounded-2xl dark:bg-dark-700/40 bg-white border dark:border-white/5 border-gray-200"
           style={{
             opacity:    langVisible ? 1 : 0,
             transform:  langVisible ? "none" : "translateY(24px)",
             transition: "opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s",
           }}
         >
-          <h3 className="text-white font-semibold mb-5 flex items-center gap-2">
+          <h3 className="dark:text-white text-gray-900 font-semibold mb-5 flex items-center gap-2">
             <span>🌍</span> Languages
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
             {languages.map((l, li) => (
               <div key={l.lang}>
                 <div className="flex justify-between text-xs mb-1.5">
-                  <span className="text-white font-medium">{l.lang}</span>
-                  <span className="text-slate-500">{l.level}</span>
+                  <span className="dark:text-white text-gray-900 font-medium">{l.lang}</span>
+                  <span className="dark:text-slate-500 text-gray-400">{l.level}</span>
                 </div>
-                <div className="h-1.5 bg-dark-600 rounded-full overflow-hidden">
+                <div className="h-1.5 dark:bg-dark-600 bg-gray-200 rounded-full overflow-hidden">
                   <div
                     className={`h-full rounded-full bg-gradient-to-r ${l.gradient}`}
                     style={{

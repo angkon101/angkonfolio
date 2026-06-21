@@ -107,17 +107,17 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg">
-      {/* Blobs */}
+      {/* Blobs — reduced opacity for light mode */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="blob absolute w-96 h-96 bg-violet-600/20 rounded-full -top-20 -left-20 blur-3xl" />
-        <div className="blob-2 absolute w-80 h-80 bg-cyan-500/[0.15] rounded-full top-1/2 -right-20 blur-3xl" />
-        <div className="blob-3 absolute w-72 h-72 bg-pink-600/[0.15] rounded-full -bottom-20 left-1/3 blur-3xl" />
+        <div className="blob absolute w-96 h-96 bg-violet-600/20 dark:bg-violet-600/20 bg-violet-500/10 rounded-full -top-20 -left-20 blur-3xl" />
+        <div className="blob-2 absolute w-80 h-80 bg-cyan-500/[0.15] dark:bg-cyan-500/[0.15] bg-cyan-400/[0.08] rounded-full top-1/2 -right-20 blur-3xl" />
+        <div className="blob-3 absolute w-72 h-72 bg-pink-600/[0.15] dark:bg-pink-600/[0.15] bg-pink-400/[0.08] rounded-full -bottom-20 left-1/3 blur-3xl" />
 
         {/* Floating code symbols */}
         {FLOAT_CHARS.map((c, i) => (
           <span
             key={i}
-            className="float-char absolute font-mono text-violet-300 text-xs select-none pointer-events-none"
+            className="float-char absolute font-mono dark:text-violet-300 text-violet-400/60 text-xs select-none pointer-events-none"
             style={{ left: c.left, top: c.top, "--dur": c.dur, "--delay": c.delay } as React.CSSProperties}
           >
             {c.text}
@@ -128,7 +128,7 @@ export default function Hero() {
         {PARTICLES.map((p, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-violet-400/40 rounded-full"
+            className="absolute w-1 h-1 bg-violet-400/40 dark:bg-violet-400/40 bg-violet-500/25 rounded-full"
             style={{ left: p.left, top: p.top, animation: `float ${p.duration} ease-in-out ${p.delay} infinite` }}
           />
         ))}
@@ -138,7 +138,7 @@ export default function Hero() {
         {/* Text */}
         <div className="order-2 md:order-1">
           <div
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-300 text-xs font-mono mb-6 border-pulse"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-violet-500/30 bg-violet-500/10 dark:text-violet-300 text-violet-600 text-xs font-mono mb-6 border-pulse"
             style={{ animationDelay: "0.2s" }}
           >
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
@@ -147,7 +147,7 @@ export default function Hero() {
 
           <h1 className="font-bold leading-none mb-4">
             <span
-              className="glitch text-5xl md:text-7xl block font-black text-white tracking-tight"
+              className="glitch text-5xl md:text-7xl block font-black dark:text-white text-gray-900 tracking-tight"
               data-text="Angkon"
               style={{ animation: "fade-up 0.7s ease 0.1s both" }}
             >
@@ -166,17 +166,17 @@ export default function Hero() {
             className="flex items-center gap-3 mb-6 h-10"
             style={{ animation: "fade-up 0.7s ease 0.4s both" }}
           >
-            <span className="text-slate-400 font-mono text-sm">&gt;_</span>
+            <span className="dark:text-slate-400 text-gray-500 font-mono text-sm">&gt;_</span>
             <span className="text-cyan-400 font-mono text-lg font-semibold typewriter-cursor">
               {displayed}
             </span>
           </div>
 
           <p
-            className="text-slate-400 text-base leading-relaxed mb-8 max-w-lg"
+            className="dark:text-slate-400 text-gray-500 text-base leading-relaxed mb-8 max-w-lg"
             style={{ animation: "fade-up 0.7s ease 0.55s both" }}
           >
-            CS student at IUBAT building real-world products with Flutter, TypeScript & React.
+            CS student at IUBAT building real-world products with Flutter, TypeScript &amp; React.
             Passionate about mobile apps, AI research, and turning ideas into shipped software.
           </p>
 
@@ -191,13 +191,13 @@ export default function Hero() {
               className="btn-magnetic group px-6 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-600 text-white font-semibold text-sm shadow-lg shadow-violet-500/20"
             >
               View Projects
-              <span className="ml-2 group-hover:translate-x-1 inline-block transition-transform">→</span>
+              <span className="ml-2 group-hover:translate-x-1 inline-block transition-transform">&rarr;</span>
             </a>
             <a
               href="#contact"
               onMouseMove={onMagnet}
               onMouseLeave={offMagnet}
-              className="btn-magnetic px-6 py-3 rounded-xl border border-white/10 text-slate-300 font-semibold text-sm hover:border-violet-500/50 hover:text-white hover:bg-violet-500/10 transition-colors"
+              className="btn-magnetic px-6 py-3 rounded-xl border dark:border-white/10 border-gray-300 dark:text-slate-300 text-gray-600 font-semibold text-sm hover:border-violet-500/50 dark:hover:text-white hover:text-gray-900 hover:bg-violet-500/10 transition-colors"
             >
               Get in touch
             </a>
@@ -214,11 +214,11 @@ export default function Hero() {
               { label: "Research", value: papers + "+",    sub: "papers"  },
             ].map((s) => (
               <div key={s.label} className="group">
-                <div className="text-2xl font-black text-white tabular-nums transition-all group-hover:text-violet-300">
+                <div className="text-2xl font-black dark:text-white text-gray-900 tabular-nums transition-all dark:group-hover:text-violet-300 group-hover:text-violet-600">
                   {s.value}
-                  <span className="text-sm font-normal text-slate-500 ml-1">{s.sub}</span>
+                  <span className="text-sm font-normal dark:text-slate-500 text-gray-400 ml-1">{s.sub}</span>
                 </div>
-                <div className="text-xs text-slate-500 font-mono mt-0.5">{s.label}</div>
+                <div className="text-xs dark:text-slate-500 text-gray-400 font-mono mt-0.5">{s.label}</div>
               </div>
             ))}
           </div>
@@ -259,27 +259,24 @@ export default function Hero() {
               />
             </div>
 
-            <div className="absolute -top-4 -right-4 px-3 py-1.5 rounded-full bg-dark-700 border border-violet-500/40 text-xs font-mono text-violet-300 animate-float">
-              Flutter ✦
+            <div className="absolute -top-4 -right-4 px-3 py-1.5 rounded-full dark:bg-dark-700 bg-white border border-violet-500/40 text-xs font-mono dark:text-violet-300 text-violet-600 shadow-sm animate-float">
+              Flutter &#10022;
             </div>
-            <div className="absolute -bottom-4 -left-4 px-3 py-1.5 rounded-full bg-dark-700 border border-cyan-500/40 text-xs font-mono text-cyan-300 animate-float-delayed">
-              TypeScript ✦
+            <div className="absolute -bottom-4 -left-4 px-3 py-1.5 rounded-full dark:bg-dark-700 bg-white border border-cyan-500/40 text-xs font-mono dark:text-cyan-300 text-cyan-600 shadow-sm animate-float-delayed">
+              TypeScript &#10022;
             </div>
-            <div className="absolute top-1/2 -right-12 px-3 py-1.5 rounded-full bg-dark-700 border border-pink-500/40 text-xs font-mono text-pink-300 animate-float-slow">
-              AI / ML ✦
+            <div className="absolute top-1/2 -right-12 px-3 py-1.5 rounded-full dark:bg-dark-700 bg-white border border-pink-500/40 text-xs font-mono dark:text-pink-300 text-pink-600 shadow-sm animate-float-slow">
+              AI / ML &#10022;
             </div>
-             <div className="absolute top-2/2 -right-12 px-3 py-1.5 rounded-full bg-dark-700 border border-pink-500/40 text-xs font-mono text-pink-300 animate-float-slow">
-              Node Js ✦
-            </div>
-            <div className="absolute top-1 -right-1 px-3 py-1.5 rounded-full bg-dark-700 border border-pink-500/40 text-xs font-mono text-pink-300 animate-float-slow">
-              React ✦
+            <div className="absolute top-1 -right-1 px-3 py-1.5 rounded-full dark:bg-dark-700 bg-white border border-green-500/40 text-xs font-mono dark:text-green-300 text-green-600 shadow-sm animate-float-slow">
+              React &#10022;
             </div>
 
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-600 text-xs font-mono">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 dark:text-slate-600 text-gray-400 text-xs font-mono">
         <span>scroll</span>
         <div className="w-0.5 h-8 bg-gradient-to-b from-violet-500/60 to-transparent animate-pulse" />
       </div>

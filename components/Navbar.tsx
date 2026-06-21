@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 const links = [
   { label: "About", href: "#about" },
@@ -36,7 +37,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-dark-900/80 backdrop-blur-xl border-b border-white/5 shadow-2xl"
+          ? "dark:bg-dark-900/80 dark:backdrop-blur-xl dark:border-b dark:border-white/5 dark:shadow-2xl bg-white/80 backdrop-blur-xl border-b border-black/5 shadow-2xl"
           : "bg-transparent"
       }`}
     >
@@ -46,7 +47,7 @@ export default function Navbar() {
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-cyan-500 flex items-center justify-center text-white font-bold text-sm group-hover:scale-110 transition-transform">
             A
           </div>
-          <span className="font-mono font-bold text-white text-sm tracking-wider">
+          <span className="font-mono font-bold dark:text-white text-gray-900 text-sm tracking-wider">
             angkon<span className="text-violet-400">.dev</span>
           </span>
         </a>
@@ -60,12 +61,13 @@ export default function Navbar() {
               className={`nav-link text-sm font-medium transition-colors ${
                 activeSection === l.href.replace("#", "")
                   ? "text-violet-400"
-                  : "text-slate-400 hover:text-white"
+                  : "dark:text-slate-400 dark:hover:text-white text-gray-500 hover:text-gray-900"
               }`}
             >
               {l.label}
             </a>
           ))}
+          <ThemeToggle />
           <a
             href="https://github.com/angkondebnath"
             target="_blank"
@@ -77,24 +79,27 @@ export default function Navbar() {
         </div>
 
         {/* Hamburger */}
-        <button
-          className="md:hidden text-slate-400 hover:text-white transition-colors"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <div className={`w-6 h-0.5 bg-current transition-all ${menuOpen ? "rotate-45 translate-y-1.5" : ""}`} />
-          <div className={`w-6 h-0.5 bg-current my-1.5 transition-all ${menuOpen ? "opacity-0" : ""}`} />
-          <div className={`w-6 h-0.5 bg-current transition-all ${menuOpen ? "-rotate-45 -translate-y-1.5" : ""}`} />
-        </button>
+        <div className="md:hidden flex items-center gap-3">
+          <ThemeToggle />
+          <button
+            className="dark:text-slate-400 dark:hover:text-white text-gray-500 hover:text-gray-900 transition-colors"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <div className={`w-6 h-0.5 bg-current transition-all ${menuOpen ? "rotate-45 translate-y-1.5" : ""}`} />
+            <div className={`w-6 h-0.5 bg-current my-1.5 transition-all ${menuOpen ? "opacity-0" : ""}`} />
+            <div className={`w-6 h-0.5 bg-current transition-all ${menuOpen ? "-rotate-45 -translate-y-1.5" : ""}`} />
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-dark-800/95 backdrop-blur-xl border-b border-white/5 px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden dark:bg-dark-800/95 bg-white/95 backdrop-blur-xl border-b dark:border-white/5 border-black/5 px-6 py-4 flex flex-col gap-4">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-slate-300 hover:text-violet-400 transition-colors font-medium"
+              className="dark:text-slate-300 dark:hover:text-violet-400 text-gray-600 hover:text-violet-400 transition-colors font-medium"
               onClick={() => setMenuOpen(false)}
             >
               {l.label}

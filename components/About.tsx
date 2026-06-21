@@ -42,7 +42,7 @@ export default function About() {
           }}
         >
           <span className="font-mono text-violet-400 text-sm section-num">01.</span>
-          <h2 className="text-3xl font-bold text-white">About Me</h2>
+          <h2 className="text-3xl font-bold dark:text-white text-gray-900">About Me</h2>
           <div
             className="flex-1 h-px bg-gradient-to-r from-violet-500/40 to-transparent"
             style={{
@@ -57,7 +57,7 @@ export default function About() {
           {/* Body text — slides in from left */}
           <div
             ref={textRef}
-            className="space-y-4 text-slate-400 leading-relaxed"
+            className="space-y-4 dark:text-slate-400 text-gray-500 leading-relaxed"
             style={{
               opacity:    textVisible ? 1 : 0,
               transform:  textVisible ? "none" : "translateX(-28px)",
@@ -70,14 +70,14 @@ export default function About() {
               Bangladesh. I love building products that actually get used.
             </p>
             <p>
-              My main toolkit is <span className="text-white font-medium">Flutter</span> for cross-platform apps
-              and <span className="text-white font-medium">TypeScript + React</span> for the web. I&apos;ve shipped
+              My main toolkit is <span className="dark:text-white text-gray-900 font-medium">Flutter</span> for cross-platform apps
+              and <span className="dark:text-white text-gray-900 font-medium">TypeScript + React</span> for the web. I&apos;ve shipped
               real products with the team at{" "}
               <span className="text-pink-400 font-semibold">Bohuvuj</span>, from e-commerce platforms to
               community knowledge bases.
             </p>
             <p>
-              I&apos;m also deep into <span className="text-white font-medium">AI research</span> — co-authored 5+
+              I&apos;m also deep into <span className="dark:text-white text-gray-900 font-medium">AI research</span> — co-authored 5+
               papers on deep learning and computer vision. Trained in Flutter under the government-backed{" "}
               <span className="text-cyan-400 font-medium">EDGE Program</span> at Bangladesh Computer Council.
             </p>
@@ -92,7 +92,7 @@ export default function About() {
             {facts.map((item, i) => (
               <div
                 key={item.label}
-                className={`group p-4 rounded-xl bg-dark-700/50 border border-white/5 ${hoverBorderMap[item.color]} transition-colors hover:bg-dark-700/80 hover:-translate-y-1`}
+                className={`group p-4 rounded-xl dark:bg-dark-700/50 bg-white border dark:border-white/5 border-gray-200 ${hoverBorderMap[item.color]} transition-colors dark:hover:bg-dark-700/80 hover:bg-gray-50 hover:-translate-y-1`}
                 style={{
                   opacity:         gridVisible ? 1 : 0,
                   transform:       gridVisible ? "none" : "translateY(24px) scale(0.95)",
@@ -106,8 +106,8 @@ export default function About() {
                 >
                   {item.icon}
                 </div>
-                <div className="text-xs text-slate-500 font-mono">{item.label}</div>
-                <div className="text-sm text-white font-semibold mt-0.5">{item.value}</div>
+                <div className="text-xs dark:text-slate-500 text-gray-400 font-mono">{item.label}</div>
+                <div className="text-sm dark:text-white text-gray-900 font-semibold mt-0.5">{item.value}</div>
               </div>
             ))}
           </div>
