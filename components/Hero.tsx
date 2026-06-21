@@ -144,7 +144,7 @@ export default function Hero() {
 
             {/* Avatar container */}
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-violet-500/40 box-glow-purple">
-              {/* Replace this div with <Image> once you add your photo to /public */}
+              <image>"C:\Users\angko\Downloads\WhatsApp Image 2026-05-24 at 11.47.23 PM.jpeg"</image>
               <div className="w-full h-full bg-gradient-to-br from-violet-900/80 via-dark-800 to-cyan-900/50 flex items-center justify-center">
                 <div className="text-center">
                   <div className="text-6xl mb-3">👨‍💻</div>
