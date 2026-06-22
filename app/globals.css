@@ -438,3 +438,271 @@ html.light .section-num {
 .animate-float          { animation: float-badge 3s ease-in-out infinite; }
 .animate-float-delayed  { animation: float-badge 3s ease-in-out 1s infinite; }
 .animate-float-slow     { animation: float-badge 4s ease-in-out 0.5s infinite; }
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   SPIDER WEB — Hanging / Silk / Sway Effects
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* ── Silk thread sway animation ── */
+@keyframes web-thread-sway {
+  0%, 100% { transform: translateX(0) skewX(0deg); }
+  25%       { transform: translateX(2px) skewX(0.5deg); }
+  75%       { transform: translateX(-2px) skewX(-0.5deg); }
+}
+.web-thread-sway {
+  animation: web-thread-sway 4s ease-in-out infinite;
+  transform-origin: top center;
+  color: rgba(160, 130, 220, 0.5);
+}
+html.light .web-thread-sway {
+  color: rgba(120, 90, 170, 0.35);
+}
+
+/* ── Hanging card effect ── */
+@keyframes hanging-sway {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33%       { transform: translateY(-2px) rotate(0.15deg); }
+  66%       { transform: translateY(1px) rotate(-0.1deg); }
+}
+.hanging-card {
+  position: relative;
+  animation: hanging-sway 6s ease-in-out infinite;
+  transform-origin: top center;
+}
+.hanging-card:nth-child(2) { animation-delay: -1.5s; }
+.hanging-card:nth-child(3) { animation-delay: -3s; }
+.hanging-card:nth-child(4) { animation-delay: -4.5s; }
+
+/* ── Hanging thread connector at top of card ── */
+.hanging-thread {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  width: 1px;
+  height: 30px;
+  background: linear-gradient(
+    to bottom,
+    rgba(160, 130, 220, 0.02),
+    rgba(160, 130, 220, 0.18)
+  );
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+html.light .hanging-thread {
+  background: linear-gradient(
+    to bottom,
+    rgba(120, 90, 170, 0.02),
+    rgba(120, 90, 170, 0.14)
+  );
+}
+/* Dew drop at the top of the thread */
+.hanging-thread::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(180, 150, 240, 0.25);
+}
+html.light .hanging-thread::before {
+  background: rgba(130, 100, 190, 0.2);
+}
+
+/* ── Section silk thread (vertical) ── */
+.section-silk-thread {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+.section-silk-thread::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 8px,
+    rgba(160, 130, 220, 0.06) 8px,
+    rgba(160, 130, 220, 0.06) 10px
+  );
+}
+html.light .section-silk-thread::after {
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 8px,
+    rgba(120, 90, 170, 0.04) 8px,
+    rgba(120, 90, 170, 0.04) 10px
+  );
+}
+
+/* ── Horizontal web strand connector between sections ── */
+.web-strand-connector {
+  position: relative;
+  height: 40px;
+  overflow: visible;
+}
+.web-strand-connector::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(160, 130, 220, 0.12) 20%,
+    rgba(160, 130, 220, 0.18) 50%,
+    rgba(160, 130, 220, 0.12) 80%,
+    transparent
+  );
+}
+html.light .web-strand-connector::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(120, 90, 170, 0.08) 20%,
+    rgba(120, 90, 170, 0.12) 50%,
+    rgba(120, 90, 170, 0.08) 80%,
+    transparent
+  );
+}
+/* Small knot/dot at center of strand */
+.web-strand-connector::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(160, 130, 220, 0.15);
+}
+html.light .web-strand-connector::after {
+  background: rgba(120, 90, 170, 0.12);
+}
+
+/* ── Content wrapper: appears to hang from the web ── */
+.web-attached-section {
+  position: relative;
+}
+.web-attached-section::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 20px;
+  background: linear-gradient(
+    to bottom,
+    rgba(160, 130, 220, 0.02),
+    rgba(160, 130, 220, 0.15)
+  );
+  pointer-events: none;
+}
+html.light .web-attached-section::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(120, 90, 170, 0.02),
+    rgba(120, 90, 170, 0.10)
+  );
+}
+
+/* ── Card top hanging thread ── */
+.card-hang {
+  position: relative;
+}
+.card-hang::before {
+  content: '';
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  width: 1px;
+  height: 24px;
+  background: linear-gradient(
+    to bottom,
+    rgba(160, 130, 220, 0.03),
+    rgba(160, 130, 220, 0.15)
+  );
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+html.light .card-hang::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(120, 90, 170, 0.02),
+    rgba(120, 90, 170, 0.10)
+  );
+}
+/* Small web-knot at the attachment point */
+.card-hang::after {
+  content: '';
+  position: absolute;
+  top: -26px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 0.5px solid rgba(160, 130, 220, 0.15);
+  background: rgba(160, 130, 220, 0.06);
+  pointer-events: none;
+}
+html.light .card-hang::after {
+  border-color: rgba(120, 90, 170, 0.12);
+  background: rgba(120, 90, 170, 0.04);
+}
+
+/* ── Corner web decoration for cards ── */
+.web-corner-decoration {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.10;
+  z-index: 0;
+  color: rgba(160, 130, 220, 0.6);
+  transition: opacity 0.4s ease;
+}
+.group:hover .web-corner-decoration {
+  opacity: 0.22;
+}
+html.light .web-corner-decoration {
+  color: rgba(120, 90, 170, 0.5);
+}
+html.light .group:hover .web-corner-decoration {
+  opacity: 0.18;
+}
+
+/* ── Mini spider SVG in sections ── */
+.section-mini-spider {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.12;
+  z-index: 2;
+  animation: hanging-sway 8s ease-in-out infinite;
+  transition: opacity 0.4s ease;
+}
+.section-mini-spider:nth-child(even) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.group:hover .section-mini-spider {
+  opacity: 0.25;
+}
+html.light .section-mini-spider {
+  opacity: 0.08;
+}
+html.light .group:hover .section-mini-spider {
+  opacity: 0.15;
+}

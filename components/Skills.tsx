@@ -43,10 +43,14 @@ export default function Skills() {
   const { ref: gridRef,   visible: gridVisible   } = useReveal();
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden">
+    <section id="skills" className="py-24 relative overflow-hidden web-attached-section">
       <div className="absolute inset-0 pointer-events-none">
         <div className="blob absolute w-96 h-96 bg-violet-600/5 rounded-full -left-32 bottom-0 blur-3xl" />
         <div className="blob-3 absolute w-64 h-64 bg-cyan-600/5 rounded-full right-20 top-10 blur-3xl" />
+        <div className="section-silk-thread" style={{ left: "10%" }} />
+        <div className="section-silk-thread" style={{ left: "35%" }} />
+        <div className="section-silk-thread" style={{ left: "65%" }} />
+        <div className="section-silk-thread" style={{ left: "90%" }} />
       </div>
 
       <div className="max-w-6xl mx-auto px-6">
@@ -77,7 +81,7 @@ export default function Skills() {
           {skillGroups.map((group, gi) => (
             <div
               key={group.category}
-              className="shimmer-card relative p-6 rounded-2xl dark:bg-dark-700/40 bg-white border dark:border-white/5 border-gray-200 hover:border-white/10 transition-all hover:-translate-y-1 hover:shadow-xl"
+              className="shimmer-card card-hang relative p-6 rounded-2xl dark:bg-dark-700/40 bg-white border dark:border-white/5 border-gray-200 hover:border-white/10 transition-all hover:-translate-y-1 hover:shadow-xl"
               style={{
                 opacity:         gridVisible ? 1 : 0,
                 transform:       gridVisible ? "none" : "translateY(32px) scale(0.95)",

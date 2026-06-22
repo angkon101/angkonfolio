@@ -97,9 +97,12 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden">
+    <section id="contact" className="py-24 relative overflow-hidden web-attached-section">
       <div className="absolute inset-0 pointer-events-none">
         <div className="blob absolute w-96 h-96 bg-violet-600/10 rounded-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 blur-3xl" />
+        <div className="section-silk-thread" style={{ left: "25%" }} />
+        <div className="section-silk-thread" style={{ left: "50%" }} />
+        <div className="section-silk-thread" style={{ left: "75%" }} />
       </div>
 
       <div className="max-w-4xl mx-auto px-6">

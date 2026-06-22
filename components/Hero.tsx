@@ -106,12 +106,19 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg web-attached-section">
       {/* Blobs — reduced opacity for light mode */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="blob absolute w-96 h-96 bg-violet-600/20 dark:bg-violet-600/20 bg-violet-500/10 rounded-full -top-20 -left-20 blur-3xl" />
         <div className="blob-2 absolute w-80 h-80 bg-cyan-500/[0.15] dark:bg-cyan-500/[0.15] bg-cyan-400/[0.08] rounded-full top-1/2 -right-20 blur-3xl" />
         <div className="blob-3 absolute w-72 h-72 bg-pink-600/[0.15] dark:bg-pink-600/[0.15] bg-pink-400/[0.08] rounded-full -bottom-20 left-1/3 blur-3xl" />
+
+        {/* Silk threads across hero */}
+        <div className="section-silk-thread" style={{ left: "8%" }} />
+        <div className="section-silk-thread" style={{ left: "25%" }} />
+        <div className="section-silk-thread" style={{ left: "50%" }} />
+        <div className="section-silk-thread" style={{ left: "75%" }} />
+        <div className="section-silk-thread" style={{ left: "92%" }} />
 
         {/* Floating code symbols */}
         {FLOAT_CHARS.map((c, i) => (
@@ -268,7 +275,7 @@ export default function Hero() {
             <div className="absolute top-1/2 -right-12 px-3 py-1.5 rounded-full dark:bg-dark-700 bg-white border border-pink-500/40 text-xs font-mono dark:text-pink-300 text-pink-600 shadow-sm animate-float-slow">
               AI / ML &#10022;
             </div>
-            <div className="absolute top-1 -right-1 px-3 py-1.5 rounded-full dark:bg-dark-700 bg-white border border-green-500/40 text-xs font-mono dark:text-green-300 text-green-600 shadow-sm animate-float-slow">
+            <div className="absolute top-1 -right--1 px-3 py-1.5 rounded-full dark:bg-dark-700 bg-white border border-green-500/40 text-xs font-mono dark:text-green-300 text-green-600 shadow-sm animate-float-slow">
               React &#10022;
             </div>
 

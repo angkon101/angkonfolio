@@ -24,10 +24,15 @@ export default function About() {
   const { ref: gridRef,   visible: gridVisible   } = useReveal();
 
   return (
-    <section id="about" className="py-24 relative overflow-hidden">
+    <section id="about" className="py-24 relative overflow-hidden web-attached-section">
+      {/* Silk threads hanging from top */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute w-96 h-96 bg-cyan-500/5 rounded-full -right-32 top-0 blur-3xl" />
         <div className="blob-2 absolute w-64 h-64 bg-violet-600/5 rounded-full left-10 bottom-10 blur-3xl" />
+        {/* Vertical silk threads */}
+        <div className="section-silk-thread" style={{ left: "15%" }} />
+        <div className="section-silk-thread" style={{ left: "50%" }} />
+        <div className="section-silk-thread" style={{ left: "85%" }} />
       </div>
 
       <div className="max-w-6xl mx-auto px-6">
@@ -92,7 +97,7 @@ export default function About() {
             {facts.map((item, i) => (
               <div
                 key={item.label}
-                className={`group p-4 rounded-xl dark:bg-dark-700/50 bg-white border dark:border-white/5 border-gray-200 ${hoverBorderMap[item.color]} transition-colors dark:hover:bg-dark-700/80 hover:bg-gray-50 hover:-translate-y-1`}
+                className={`group hanging-card p-4 rounded-xl dark:bg-dark-700/50 bg-white border dark:border-white/5 border-gray-200 ${hoverBorderMap[item.color]} transition-colors dark:hover:bg-dark-700/80 hover:bg-gray-50 hover:-translate-y-1`}
                 style={{
                   opacity:         gridVisible ? 1 : 0,
                   transform:       gridVisible ? "none" : "translateY(24px) scale(0.95)",

@@ -97,10 +97,13 @@ export default function Projects() {
   const { ref: gridRef,   visible: gridVisible   } = useReveal();
 
   return (
-    <section id="projects" className="py-24 relative overflow-hidden">
+    <section id="projects" className="py-24 relative overflow-hidden web-attached-section">
       <div className="absolute inset-0 pointer-events-none">
         <div className="blob-2 absolute w-96 h-96 bg-pink-600/5 rounded-full right-0 top-1/2 blur-3xl" />
         <div className="absolute w-64 h-64 bg-cyan-600/5 rounded-full left-10 top-10 blur-3xl" />
+        <div className="section-silk-thread" style={{ left: "20%" }} />
+        <div className="section-silk-thread" style={{ left: "45%" }} />
+        <div className="section-silk-thread" style={{ left: "78%" }} />
       </div>
 
       <div className="max-w-6xl mx-auto px-6">
@@ -135,7 +138,7 @@ export default function Projects() {
                 key={project.name}
                 onMouseMove={onCardMove}
                 onMouseLeave={onCardLeave}
-                className={`project-tilt group relative p-6 rounded-2xl dark:bg-dark-700/40 bg-white border dark:border-white/5 border-gray-200 ${c.border} hover:shadow-2xl`}
+                className={`project-tilt group hanging-card relative p-6 rounded-2xl dark:bg-dark-700/40 bg-white border dark:border-white/5 border-gray-200 ${c.border} hover:shadow-2xl`}
                 style={{
                   opacity:         gridVisible ? 1 : 0,
                   transitionDelay: gridVisible ? `${pi * 0.12}s` : "0s",

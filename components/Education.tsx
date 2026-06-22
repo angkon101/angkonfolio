@@ -54,10 +54,13 @@ export default function Education() {
   const { ref: langRef,    visible: langVisible    } = useReveal();
 
   return (
-    <section id="education" className="py-24 relative overflow-hidden">
+    <section id="education" className="py-24 relative overflow-hidden web-attached-section">
       <div className="absolute inset-0 pointer-events-none">
         <div className="blob absolute w-80 h-80 bg-violet-600/5 rounded-full left-0 top-0 blur-3xl" />
         <div className="blob-3 absolute w-64 h-64 bg-cyan-600/5 rounded-full right-20 bottom-20 blur-3xl" />
+        <div className="section-silk-thread" style={{ left: "12%" }} />
+        <div className="section-silk-thread" style={{ left: "55%" }} />
+        <div className="section-silk-thread" style={{ left: "88%" }} />
       </div>
 
       <div className="max-w-6xl mx-auto px-6">
@@ -120,7 +123,7 @@ export default function Education() {
                   />
 
                   <div
-                    className={`shimmer-card p-6 rounded-2xl dark:bg-dark-700/40 bg-white border dark:border-white/5 border-gray-200 ${c.hoverBorder} transition-all hover:-translate-y-1`}
+                    className={`shimmer-card hanging-card p-6 rounded-2xl dark:bg-dark-700/40 bg-white border dark:border-white/5 border-gray-200 ${c.hoverBorder} transition-all hover:-translate-y-1`}
                   >
                     <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
                       <div className="flex items-center gap-3">

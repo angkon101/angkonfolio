@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="py-8 border-t dark:border-white/5 border-gray-200">
+    <footer className="py-8 border-t dark:border-white/5 border-gray-200 relative web-attached-section">
       <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm dark:text-slate-600 text-gray-400 font-mono">
         <span>
           Designed &amp; built by{" "}
